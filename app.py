@@ -3,6 +3,7 @@ import requests
 import json
 import redis
 import hashlib
+import datetime
 
 app = Flask(__name__)
 db = redis.Redis(host='redis', port=6379)
@@ -10,7 +11,9 @@ db = redis.Redis(host='redis', port=6379)
 
 @app.route('/')
 def index():
-    return '<h1>Videa Backend Assignment</h1>'
+    return '''
+    <h4>TimeStamp :  {}</h4>
+    <h1>Videa Backend Assignment</h1>'''.format(datetime.datetime.now())
 
 
 @app.route("/films", methods=["POST"])
