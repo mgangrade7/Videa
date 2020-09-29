@@ -5,8 +5,7 @@ import redis
 import hashlib
 
 app = Flask(__name__)
-db = redis.Redis('localhost')  # connect to server
-status = db.ping()
+db = redis.Redis(host='redis', port=6379)
 
 
 @app.route('/')
@@ -70,4 +69,4 @@ def characters():
 
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=8000, debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=True)
