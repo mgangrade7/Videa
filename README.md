@@ -28,7 +28,7 @@ This tells Docker to:
 
 * Install the Python dependencies.
 
-* Set the default command for the container to `python app.py.
+* Set the default command for the container to `python app.py.`
 
 
 ## Compose file
@@ -95,5 +95,7 @@ docker-compose down --volumes
 
 ![Characters](/images/char.png)
 
+
+3. Test for invalid film id
 
 ![Invalid](/images/inv.png)
