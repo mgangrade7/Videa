@@ -82,3 +82,10 @@ Afterward, to bring everything down and remove unused containers type:
 docker-compose down --volumes
 
 ```
+
+
+## Test
+
+1. To test make POST request to http://localhost:8080/films and expected output contains release date, title and episode id each film
+
+![Films](/images/films.png)
