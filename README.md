@@ -86,6 +86,14 @@ docker-compose down --volumes
 
 ## Test
 
-1. To test make POST request to http://localhost:8080/films and expected output contains release date, title and episode id each film
+1. To test make `POST` request to http://localhost:8080/films and expected output contains release date, title and episode id each film
 
 ![Films](/images/films.png)
+
+
+2. To test make `POST` request to http://localhost:8080/characters with {filmID: <int>} as `JSON` body and expected output containe id and name of each character in the film or `Invalid film id` as a message if film id not found
+
+![Characters](/images/char.png)
+
+
+![Invalid](/images/inv.png)
