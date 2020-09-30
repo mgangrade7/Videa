@@ -64,7 +64,7 @@ To run the containers write:
 
 ```python
 
-docker-compose up
+~/Videa$ docker-compose up
 
 ```
 
@@ -79,7 +79,7 @@ Afterward, to bring everything down and remove unused containers type:
 
 ```python
 
-docker-compose down --volumes
+~/Videa$ docker-compose down --volumes
 
 ```
 
