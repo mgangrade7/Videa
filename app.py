@@ -31,12 +31,12 @@ def films():
                     for film in reqContent['results']:
                         data.append(
                             {'title': film['title'], 'episode_id': film['episode_id'], 'release_date': film['release_date']})
-                    db.set(name=hashKey, value=json.dumps(data), ex=50)
+                    db.set(name=hashKey, value=json.dumps(data), ex=3600)
                     return Response(json.dumps(data), mimetype='application/json')
                 else:
                     return Response(val, mimetype='application/json')
-        else:
-            return {'error': 'Invalid Response'}
+            else:
+                return jsonify('Invalid film id')
     except Exception as e:
         return {'error': e}
 
@@ -46,7 +46,7 @@ def characters():
     try:
         if request.method == 'POST':
             reqData = request.get_json()
-            filmid = reqData['filmid']
+            filmid = reqData['filmID']
             req = requests.get(
                 'https://swapi.dev/api/films/{}/'.format(filmid))
 
@@ -61,12 +61,12 @@ def characters():
                         id = character.split("/")[-2]
                         t = requests.get(character).json()
                         data.append({'id': id, 'name': t['name']})
-                    db.set(name=hashKey, value=json.dumps(data), ex=50)
+                    db.set(name=hashKey, value=json.dumps(data), ex=3600)
                     return Response(json.dumps(data), mimetype='application/json')
                 else:
                     return Response(val, mimetype='application/json')
             else:
-                return {'error': 'Invalid film id'}
+                return jsonify('Invalid film id')
     except Exception as e:
         return {'error': e}
 
